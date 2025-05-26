@@ -1,0 +1,36 @@
+## Tomcat
+#server:
+#  port: 9200
+#
+## Spring
+#spring:
+#  application:
+#    # 应用名称
+#    name: ruoyi-auth
+#  cloud:
+#    nacos:
+#      discovery:
+#        enabled: true
+#        server-addr: http://ruoyi-nacos:8848
+#        namespace: public
+#        group: DEFAULT_GROUP
+#        register-enabled: true
+#        service: ruoyi-auth
+#        ip: ${spring.cloud.client.ip-address}
+#        port: ${server.port}
+#      config:
+#        enabled: true
+#        server-addr: http://ruoyi-nacos:8848
+#        namespace: public
+#        group: DEFAULT_GROUP
+#        file-extension: yml
+#        refresh-enabled: true
+#        shared-configs:
+#          - data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+#            group: DEFAULT_GROUP
+#            refresh: true
+#        retry:
+#          max-attempts: 3
+#          initial-interval: 3000
+#          max-interval: 10000
+#          multiplier: 1.5

@@ -7,6 +7,10 @@ services:
       context: ./nacos
     environment:
       - MODE=standalone
+      - NACOS_AUTH_TOKEN=U2VjcmV0S2V5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5
+      - NACOS_AUTH_IDENTITY_KEY=serverIdentity
+      - NACOS_AUTH_IDENTITY_VALUE=security
+      - NACOS_AUTH_TOKEN_EXPIRE_SECONDS=18000
     volumes:
       - ./nacos/logs/:/home/nacos/logs
       - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
@@ -26,7 +30,7 @@ services:
     volumes:
       - ./mysql/conf:/etc/mysql/conf.d
       - ./mysql/logs:/logs
-      - ./mysql/data:/var/lib/mysql
+      # - ./mysql/data:/var/lib/mysql
     command: [
           'mysqld',
           '--innodb-buffer-pool-size=80M',
