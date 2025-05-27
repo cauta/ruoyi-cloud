@@ -7,19 +7,35 @@ spring:
   application:
     # 应用名称
     name: ruoyi-file
-  profiles:
-    # 环境配置
-    active: dev
-  cloud:
-    nacos:
-      discovery:
-        # 服务注册地址
-        server-addr: ruoyi-nacos:8848
-      config:
-        # 配置中心地址
-        server-addr: ruoyi-nacos:8848
-        # 配置文件格式
-        file-extension: yml
-        # 共享配置
-        shared-configs:
-          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+# 本地文件上传
+file:
+  domain: http://127.0.0.1:9300
+  path: D:/ruoyi/uploadPath
+  prefix: /statics
+
+# FastDFS配置
+fdfs:
+  domain: http://8.129.231.12
+  soTimeout: 3000
+  connectTimeout: 2000
+  trackerList: 8.129.231.12:22122
+
+# Minio配置
+minio:
+  url: http://8.129.231.12:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucketName: test
+#  cloud:
+#    nacos:
+#      discovery:
+#        # 服务注册地址
+#        server-addr: ruoyi-nacos:8848
+#      config:
+#        # 配置中心地址
+#        server-addr: ruoyi-nacos:8848
+#        # 配置文件格式
+#        file-extension: yml
+#        # 共享配置
+#        shared-configs:
+#          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

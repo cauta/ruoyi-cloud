@@ -22,7 +22,7 @@ services:
       - ruoyi-mysql
   ruoyi-mysql:
     container_name: ruoyi-mysql
-    image: mysql:5.7
+    image: mysql:8.0
     build:
       context: ./mysql
     ports:
@@ -74,6 +74,8 @@ services:
     build:
       context: ./ruoyi/gateway
       dockerfile: dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
     ports:
       - "8080:8080"
     depends_on:
@@ -85,6 +87,8 @@ services:
     build:
       context: ./ruoyi/auth
       dockerfile: dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
     ports:
       - "9200:9200"
     depends_on:
@@ -96,6 +100,8 @@ services:
     build:
       context: ./ruoyi/modules/system
       dockerfile: dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
     ports:
       - "9201:9201"
     depends_on:
@@ -109,6 +115,8 @@ services:
     build:
       context: ./ruoyi/modules/gen
       dockerfile: dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
     ports:
       - "9202:9202"
     depends_on:
@@ -120,6 +128,8 @@ services:
     build:
       context: ./ruoyi/modules/job
       dockerfile: dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
     ports:
       - "9203:9203"
     depends_on:
@@ -131,6 +141,8 @@ services:
     build:
       context: ./ruoyi/modules/file
       dockerfile: dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
     ports:
       - "9300:9300"
     volumes:
@@ -140,5 +152,7 @@ services:
     build:
       context: ./ruoyi/visual/monitor
       dockerfile: dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
     ports:
       - "9100:9100"
